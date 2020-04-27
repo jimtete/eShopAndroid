@@ -11,8 +11,14 @@ import java.util.List;
 @Dao
 public interface MyDao {
 
+    @Query("SELECT MAX(pid) FROM products")
+    public String getMaxProductId();
+
     @Query("SELECT * FROM customers")
     public List<Customers> getCustomers();
+
+    @Query("SELECT * FROM sales")
+    public List<Sales> getSales();
 
     @Query("SELECT password FROM customers WHERE username=:input")
     public String getAuth(String input);
@@ -22,6 +28,9 @@ public interface MyDao {
 
     @Delete
     public void deleteCustomer(Customers customers);
+
+    @Delete
+    public void deleteSale(Sales sale);
 
     @Update
     public void updateCustomer(Customers customers);

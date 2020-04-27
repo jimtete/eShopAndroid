@@ -11,6 +11,9 @@ public class Products {
     @PrimaryKey @ColumnInfo(name = "pid")
     private int id;
 
+    @ColumnInfo ( name = "quantity")
+    private int quantity;
+
     @ColumnInfo (name="pname")
     private String name;
 
@@ -37,7 +40,17 @@ public class Products {
         return type;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public void setType(int type) {
         this.type = type;
+
+
     }
 }

@@ -9,11 +9,12 @@ import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
@@ -33,38 +34,31 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.profile:
-                        switch (menuItem.getItemId()){
-                            case R.id.profile:
-                                menuItem.setChecked(true);
-                                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfilesQueryFragment()).addToBackStack(null).commit();
-                                drawerLayout.closeDrawers();
-                                return true;
-                            case R.id.past_orders:
-                                menuItem.setChecked(true);
+        navigationView.setNavigationItemSelectedListener(this);
 
-                                drawerLayout.closeDrawers();
-                                return true;
-                            case R.id.adminstrator:
-                                menuItem.setChecked(true);
-
-                                drawerLayout.closeDrawers();
-                                return true;
-                            case R.id.delete:
-                                menuItem.setChecked(true);
-
-                                drawerLayout.closeDrawers();
-                                return true;
-                        }
-                }
-
-                return false;
-            }
-        });
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//                switch (menuItem.getItemId()){
+//                    case R.id.profile:
+//                        switch (menuItem.getItemId()){
+//                            case R.id.profile:
+//                                menuItem.setChecked(true);
+//                                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfilesQueryFragment()).addToBackStack(null).commit();
+//                                drawerLayout.closeDrawers();
+//                                return true;
+//                            case R.id.past_orders:
+//                                menuItem.setChecked(true);
+//                                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new ProfilesQueryFragment()).addToBackStack(null).commit();
+//                                drawerLayout.closeDrawers();
+//                                return true;
+//                        }
+//                        return false;
+//                }
+//
+//                return false;
+//            }
+//        });
 
 
         fragmentManager = getSupportFragmentManager();
@@ -75,5 +69,42 @@ public class MainActivity extends AppCompatActivity {
             if(savedInstanceState!=null)return;
             fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment()).commit();
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+
+        if (id==R.id.profile){
+            menuItem.setChecked(true);
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfilesQueryFragment()).addToBackStack(null).commit();
+            drawerLayout.closeDrawers();
+            return true;
+        }
+
+        if (id==R.id.past_orders){
+            menuItem.setChecked(true);
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SalesQueryFragment()).addToBackStack(null).commit();
+            drawerLayout.closeDrawers();
+            return true;
+        }
+
+        if (id==R.id.adminstrator){
+            menuItem.setChecked(true);
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new AdminFragment()).addToBackStack(null).commit();
+            drawerLayout.closeDrawers();;
+            return true;
+        }
+
+        if (id==R.id.delete){
+            menuItem.setChecked(true);
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteFragment()).addToBackStack(null).commit();
+            drawerLayout.closeDrawers();;
+            return true;
+        }
+
+
+
+        return false;
     }
 }

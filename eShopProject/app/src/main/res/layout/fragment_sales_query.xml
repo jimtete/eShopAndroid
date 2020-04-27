@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SalesQueryFragment"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:layout_marginTop="66dp"
+        android:id="@+id/button_query_all_sales"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="GET ALL SALES"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtqueryresult_sales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Query result:"
+                android:layout_margin="24dp"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
