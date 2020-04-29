@@ -14,6 +14,9 @@ public interface MyDao {
     @Query("SELECT MAX(pid) FROM products")
     public String getMaxProductId();
 
+    @Query("SELECT * FROM products")
+    public List<Products> getProducts();
+
     @Query("SELECT * FROM customers")
     public List<Customers> getCustomers();
 

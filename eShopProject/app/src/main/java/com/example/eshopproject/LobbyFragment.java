@@ -1,5 +1,6 @@
 package com.example.eshopproject;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,13 +25,14 @@ import com.google.android.material.navigation.NavigationView;
 public class LobbyFragment extends Fragment {
 
     Bundle getBundle;
-
+    TextView textViewName,textViewId,textViewQuantity,textViewType;
 
     public LobbyFragment() {
         // Required empty public constructor
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,7 +41,22 @@ public class LobbyFragment extends Fragment {
 
         getBundle = getArguments();
         String username=getBundle.getString("username");
-        ((TextView)view.findViewById(R.id.textView2)).setText(username);
+
+        textViewName=view.findViewById(R.id.textView_product_name);
+        textViewId=view.findViewById(R.id.textView_product_id);
+        textViewQuantity=view.findViewById(R.id.textView_product_quantity);
+        textViewType=view.findViewById(R.id.textView_product_type);
+
+        List<Products> products = MainActivity.eshopDatabase.myDao().getProducts();
+
+        for (Products p: products){
+            textViewName.setText(textViewName.getText().toString()+p.getName()+"\n ----------"+"\n");
+            textViewId.setText(textViewId.getText().toString()+p.getId()+"\n ----------"+"\n");
+            textViewQuantity.setText(textViewQuantity.getText().toString()+p.getQuantity()+"\n ----------"+"\n");
+            textViewType.setText(textViewType.getText().toString()+p.getType()+"\n ----------"+"\n");
+        }
+
+
 
 
 

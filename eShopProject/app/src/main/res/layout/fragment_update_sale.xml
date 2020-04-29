@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateSaleFragment"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE SALE"
+        android:layout_marginTop="48dp"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:layout_marginTop="8dp"
+        android:id="@+id/editText_update_sale_sid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Enter sale id..." />
+
+    <EditText
+        android:layout_marginTop="8dp"
+        android:id="@+id/editText_update_sale_pid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Enter product id..." />
+
+    <EditText
+        android:layout_marginTop="8dp"
+        android:id="@+id/editText_update_sale_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter username..." />
+
+    <EditText
+        android:layout_marginTop="8dp"
+        android:id="@+id/editText_update_sale_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="Enter date..."/>
+
+    <Button
+        android:id="@+id/button_update_sale_submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="UPDATE SALE"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

@@ -35,7 +35,7 @@ public class AdminFragment extends Fragment implements View.OnClickListener {
         deleteSaleButton = view.findViewById(R.id.button_delete_sale);
         insertProductButton = view.findViewById(R.id.button_insert_product);
 
-        updateSaleButton.setOnClickListener(this);
+        updateCustomerButton.setOnClickListener(this);
         updateProductButton.setOnClickListener(this);
         updateSaleButton.setOnClickListener(this);
         deleteSaleButton.setOnClickListener(this);
@@ -55,7 +55,19 @@ public class AdminFragment extends Fragment implements View.OnClickListener {
             MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteProductFragment()).addToBackStack(null).commit();
         }
         if (v.getId()==R.id.button_delete_sale){
+
             MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteSaleFragment()).addToBackStack(null).commit();
+        }
+        if (v.getId()==R.id.button_update_customer){
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateCustomerFragment()).addToBackStack(null).commit();
+        }
+        if (v.getId()==R.id.button_update_product){
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdaateProductFragment()).addToBackStack(null).commit();
+
+        }
+        if (v.getId()==R.id.button_update_sale){
+            MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateSaleFragment()).addToBackStack(null).commit();
+
         }
     }
 }
