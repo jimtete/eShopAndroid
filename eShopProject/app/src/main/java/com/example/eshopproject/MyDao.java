@@ -11,8 +11,14 @@ import java.util.List;
 @Dao
 public interface MyDao {
 
+    @Query("SELECT * FROM products WHERE pid=:input")
+    public Products getProduct(int input);
+
     @Query("SELECT MAX(pid) FROM products")
     public String getMaxProductId();
+
+    @Query("SELECT MAX(sid) FROM sales")
+    public String getMaxSaleId();
 
     @Query("SELECT * FROM products")
     public List<Products> getProducts();

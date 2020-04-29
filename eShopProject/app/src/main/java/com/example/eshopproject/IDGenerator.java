@@ -9,5 +9,12 @@ public class IDGenerator {
         return id2+1;
     }
 
+    public static int saleId(){
+        String id = MainActivity.eshopDatabase.myDao().getMaxSaleId();
+        if (id==null)return 1;
+        int id2 = Integer.parseInt(id);
+        return id2+1;
+    }
+
 
 }
