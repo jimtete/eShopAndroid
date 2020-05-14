@@ -79,7 +79,7 @@ public class FinalFragment extends Fragment {
             MainActivity.eshopDatabase.myDao().updateProduct(temp);
 
         }
-
+        cart.clear();
 
 
 

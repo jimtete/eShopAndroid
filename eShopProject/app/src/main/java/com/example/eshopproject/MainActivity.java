@@ -36,31 +36,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setNavigationItemSelectedListener(this);
 
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                switch (menuItem.getItemId()){
-//                    case R.id.profile:
-//                        switch (menuItem.getItemId()){
-//                            case R.id.profile:
-//                                menuItem.setChecked(true);
-//                                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfilesQueryFragment()).addToBackStack(null).commit();
-//                                drawerLayout.closeDrawers();
-//                                return true;
-//                            case R.id.past_orders:
-//                                menuItem.setChecked(true);
-//                                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new ProfilesQueryFragment()).addToBackStack(null).commit();
-//                                drawerLayout.closeDrawers();
-//                                return true;
-//                        }
-//                        return false;
-//                }
-//
-//                return false;
-//            }
-//        });
-
-
         fragmentManager = getSupportFragmentManager();
         eshopDatabase = Room.databaseBuilder(getApplicationContext(),EshopDatabase.class,"eshopDB").allowMainThreadQueries().build();
 

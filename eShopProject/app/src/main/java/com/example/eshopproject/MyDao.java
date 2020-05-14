@@ -44,6 +44,9 @@ public interface MyDao {
     @Update
     public void updateCustomer(Customers customers);
 
+    @Update
+    public void updateSale(Sales sales);
+
     @Insert
     public void insertProduct(Products products);
 
